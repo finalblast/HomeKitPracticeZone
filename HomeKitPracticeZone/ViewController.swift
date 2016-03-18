@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         
         if error != nil {
             
-            println("Failed to add zone: \(error)")
+            println("Failed to add zone: \(error.description)")
             return
             
         }
@@ -76,7 +76,9 @@ class ViewController: UIViewController {
                 println("Successfully added a bedroom to the Bedroom zone")
                 self.numberOfBedroomsAdded++
                 
-                if self.numberOfBedroomsAdded == self.numberOfBedroomsToAdd{ self.home.removeZone(self.bedroomZone, completionHandler: { (error: NSError!) -> Void in
+                if self.numberOfBedroomsAdded == self.numberOfBedroomsToAdd {
+                    
+                    self.home.removeZone(self.bedroomZone, completionHandler: { (error: NSError!) -> Void in
                     
                     if error != nil {
                     
@@ -124,7 +126,7 @@ extension ViewController: HMHomeManagerDelegate {
                     
         if error != nil {
             
-            println("Failed to add home: \(error)")
+            println("Failed to add home: \(error.description)")
             return
             
         }
